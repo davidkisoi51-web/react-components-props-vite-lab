@@ -1,13 +1,11 @@
 import React from "react";
 
-function Article({ title, date, author, summary }) {
+function Article({ title, date = "January 1, 1970", preview }) {
   return (
-    <article className="article">
+    <article>
       <h3>{title}</h3>
-      <div className="article-meta">
-        <span>{date}</span> &bull; <span>{author}</span>
-      </div>
-      <p>{summary}</p>
+      <small>{date}</small>
+      <p>{preview}</p>
     </article>
   );
 }

@@ -1,10 +1,9 @@
 import React from "react";
 
-function Header({ title, subtitle }) {
+function Header({ name }) { // 
   return (
-    <header className="site-header">
-      <h1>{title}</h1>
-      <p className="subtitle">{subtitle}</p>
+    <header>
+      <h1>{name}</h1>
     </header>
   );
 }

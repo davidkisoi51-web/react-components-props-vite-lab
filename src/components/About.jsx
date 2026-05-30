@@ -1,17 +1,15 @@
 import React from "react";
 
-function About({ name, bio, avatar }) {
+function About({ 
+  image = "https://via.placeholder.com/215", 
+  about, 
+  name 
+}) {
   return (
-    <section className="about">
-      <h2>About Me</h2>
-      <div className="about-content">
-        <img src={avatar} alt={name} className="avatar" />
-        <div>
-          <h3>{name}</h3>
-          <p>{bio}</p>
-        </div>
-      </div>
-    </section>
+    <aside>
+      <img src={image} alt="blog logo" />
+      <p>{about}</p>
+    </aside>
   );
 }
 

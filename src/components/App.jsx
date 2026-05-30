@@ -1,29 +1,25 @@
 import React from "react";
 import blog from "../data/blog";
 
-import Header from "./components/Header";
-import About from "./components/About";
-import ArticleList from "./components/ArticleList.js";
-import "./assets/index.css";
+import Header from "./Header";
+import About from "./About";
+import ArticleList from "./ArticleList";
+import "../index.css"; 
 
 function App() {
   return (
-    <div className="app">
-      <Header
-        title={blog.header.title}
-        subtitle={blog.header.subtitle}
+    <div className="App">
+      {/* If blog.header exists, use title. Otherwise, fall back to blog.name */}
+      <Header name={blog.header?.title || blog.name} />
+      
+      {/* Fallbacks for the avatar image and the bio paragraph text */}
+      <About 
+        image={blog.about?.avatar || blog.image} 
+        about={blog.about?.bio || blog.about} 
       />
-      <main className="main-content">
-        <About
-          name={blog.about.name}
-          bio={blog.about.bio}
-          avatar={blog.about.avatar}
-        />
-        <ArticleList articles={blog.articles} />
-      </main>
-      <footer className="site-footer">
-        <p>&copy; 2026 {blog.about.name}. All rights reserved.</p>
-      </footer>
+      
+      {/* Fallback to pass whichever array exists down to the list */}
+      <ArticleList posts={blog.articles || blog.posts} />
     </div>
   );
 }
